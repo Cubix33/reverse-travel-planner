@@ -1,0 +1,724 @@
+[
+  {
+    "id": "kyoto",
+    "name": "Kyoto",
+    "country": "Japan",
+    "region": "East Asia",
+    "tagline": "Temples, tea, and quiet alleyways",
+    "avg_daily_cost_inr": 9000,
+    "flight_hours_from": {"Delhi": 8.5, "Mumbai": 9.0, "Bangalore": 9.5, "London": 12.0, "New York": 16.0, "Singapore": 6.5, "Dubai": 9.0},
+    "visa": {"Indian": "required", "US": "visa_free", "UK": "visa_free", "EU": "visa_free", "Singapore": "visa_free"},
+    "weather": {"avg_temp_c": 18, "rain_probability": 0.35, "air_quality": 75},
+    "genome": {
+      "nature": 70, "cafes": 88, "photography": 95, "history": 98, "relaxation": 80,
+      "nightlife": 25, "trekking": 40, "crowds": 55, "expensive_food": 75,
+      "beach": 5, "mountains": 45, "walkability": 92, "museums": 85, "architecture": 96,
+      "internet": 90, "safety": 95, "vegetarian": 70, "digital_nomad": 65,
+      "family_friendly": 80, "public_transport": 95, "sunset": 85, "shopping": 70
+    },
+    "hidden_gems": ["Philosopher's Path at dawn", "Local kissaten in Nishijin", "Fushimi Inari side trails after 4pm"]
+  },
+  {
+    "id": "lisbon",
+    "name": "Lisbon",
+    "country": "Portugal",
+    "region": "Europe",
+    "tagline": "Hills, pastel de nata, golden light",
+    "avg_daily_cost_inr": 6500,
+    "flight_hours_from": {"Delhi": 11.0, "Mumbai": 11.5, "Bangalore": 12.0, "London": 2.5, "New York": 7.0, "Singapore": 14.0, "Dubai": 8.0},
+    "visa": {"Indian": "schengen", "US": "visa_free", "UK": "visa_free", "EU": "visa_free", "Singapore": "visa_free"},
+    "weather": {"avg_temp_c": 20, "rain_probability": 0.25, "air_quality": 80},
+    "genome": {
+      "nature": 55, "cafes": 92, "photography": 94, "history": 88, "relaxation": 75,
+      "nightlife": 70, "trekking": 30, "crowds": 60, "expensive_food": 45,
+      "beach": 70, "mountains": 20, "walkability": 78, "museums": 75, "architecture": 90,
+      "internet": 85, "safety": 82, "vegetarian": 75, "digital_nomad": 90,
+      "family_friendly": 70, "public_transport": 85, "sunset": 98, "shopping": 65
+    },
+    "hidden_gems": ["Miradouro da Senhora do Monte at sunset", "LX Factory weekday mornings", "Cascais coastal walk"]
+  },
+  {
+    "id": "chiang_mai",
+    "name": "Chiang Mai",
+    "country": "Thailand",
+    "region": "Southeast Asia",
+    "tagline": "Temples, cafés, and mountain air",
+    "avg_daily_cost_inr": 2800,
+    "flight_hours_from": {"Delhi": 5.5, "Mumbai": 5.0, "Bangalore": 4.5, "London": 13.0, "New York": 20.0, "Singapore": 2.5, "Dubai": 7.0},
+    "visa": {"Indian": "visa_free", "US": "visa_free", "UK": "visa_free", "EU": "visa_free", "Singapore": "visa_free"},
+    "weather": {"avg_temp_c": 26, "rain_probability": 0.3, "air_quality": 55},
+    "genome": {
+      "nature": 85, "cafes": 95, "photography": 88, "history": 80, "relaxation": 90,
+      "nightlife": 50, "trekking": 70, "crowds": 40, "expensive_food": 15,
+      "beach": 5, "mountains": 80, "walkability": 70, "museums": 50, "architecture": 75,
+      "internet": 88, "safety": 80, "vegetarian": 85, "digital_nomad": 98,
+      "family_friendly": 75, "public_transport": 55, "sunset": 80, "shopping": 60
+    },
+    "hidden_gems": ["Mae Kampong village cafés", "Wat Umong forest temple", "Nimman side-street specialty coffee"]
+  },
+  {
+    "id": "tbilisi",
+    "name": "Tbilisi",
+    "country": "Georgia",
+    "region": "Caucasus",
+    "tagline": "Wine, sulfur baths, and old-town charm",
+    "avg_daily_cost_inr": 3200,
+    "flight_hours_from": {"Delhi": 6.5, "Mumbai": 7.0, "Bangalore": 7.5, "London": 5.0, "New York": 12.0, "Singapore": 10.0, "Dubai": 4.0},
+    "visa": {"Indian": "visa_free", "US": "visa_free", "UK": "visa_free", "EU": "visa_free", "Singapore": "visa_free"},
+    "weather": {"avg_temp_c": 17, "rain_probability": 0.3, "air_quality": 70},
+    "genome": {
+      "nature": 75, "cafes": 85, "photography": 90, "history": 85, "relaxation": 70,
+      "nightlife": 75, "trekking": 65, "crowds": 30, "expensive_food": 25,
+      "beach": 5, "mountains": 85, "walkability": 80, "museums": 65, "architecture": 88,
+      "internet": 80, "safety": 78, "vegetarian": 60, "digital_nomad": 85,
+      "family_friendly": 65, "public_transport": 70, "sunset": 75, "shopping": 50
+    },
+    "hidden_gems": ["Rike Park cable car at dusk", "Local wine bars in Mtatsminda", "Abano district sulfur baths"]
+  },
+  {
+    "id": "bali",
+    "name": "Ubud, Bali",
+    "country": "Indonesia",
+    "region": "Southeast Asia",
+    "tagline": "Rice terraces, wellness, and creative cafés",
+    "avg_daily_cost_inr": 4000,
+    "flight_hours_from": {"Delhi": 8.0, "Mumbai": 7.5, "Bangalore": 7.0, "London": 16.0, "New York": 22.0, "Singapore": 2.5, "Dubai": 9.5},
+    "visa": {"Indian": "voa", "US": "visa_free", "UK": "visa_free", "EU": "visa_free", "Singapore": "visa_free"},
+    "weather": {"avg_temp_c": 27, "rain_probability": 0.45, "air_quality": 65},
+    "genome": {
+      "nature": 92, "cafes": 90, "photography": 93, "history": 55, "relaxation": 95,
+      "nightlife": 40, "trekking": 55, "crowds": 65, "expensive_food": 40,
+      "beach": 60, "mountains": 50, "walkability": 50, "museums": 35, "architecture": 60,
+      "internet": 75, "safety": 75, "vegetarian": 95, "digital_nomad": 92,
+      "family_friendly": 70, "public_transport": 35, "sunset": 90, "shopping": 55
+    },
+    "hidden_gems": ["Campuhan Ridge Walk early morning", "Sidemen valley instead of central Ubud", "Local warungs off Monkey Forest Road"]
+  },
+  {
+    "id": "marrakech",
+    "name": "Marrakech",
+    "country": "Morocco",
+    "region": "Africa",
+    "tagline": "Souks, riads, and desert gateways",
+    "avg_daily_cost_inr": 3500,
+    "flight_hours_from": {"Delhi": 10.0, "Mumbai": 10.5, "Bangalore": 11.0, "London": 3.5, "New York": 8.0, "Singapore": 14.0, "Dubai": 7.5},
+    "visa": {"Indian": "required", "US": "visa_free", "UK": "visa_free", "EU": "visa_free", "Singapore": "visa_free"},
+    "weather": {"avg_temp_c": 24, "rain_probability": 0.15, "air_quality": 60},
+    "genome": {
+      "nature": 50, "cafes": 70, "photography": 95, "history": 90, "relaxation": 60,
+      "nightlife": 45, "trekking": 40, "crowds": 80, "expensive_food": 30,
+      "beach": 10, "mountains": 55, "walkability": 65, "museums": 60, "architecture": 92,
+      "internet": 65, "safety": 65, "vegetarian": 70, "digital_nomad": 55,
+      "family_friendly": 60, "public_transport": 50, "sunset": 85, "shopping": 90
+    },
+    "hidden_gems": ["Jardin Secret mid-morning", "Atlas foothill day trip to Imlil", "Rooftop cafés away from Jemaa el-Fna"]
+  },
+  {
+    "id": "reykjavik",
+    "name": "Reykjavik",
+    "country": "Iceland",
+    "region": "Europe",
+    "tagline": "Otherworldly landscapes and long summer light",
+    "avg_daily_cost_inr": 14000,
+    "flight_hours_from": {"Delhi": 12.0, "Mumbai": 12.5, "Bangalore": 13.0, "London": 3.0, "New York": 5.5, "Singapore": 16.0, "Dubai": 10.0},
+    "visa": {"Indian": "schengen", "US": "visa_free", "UK": "visa_free", "EU": "visa_free", "Singapore": "visa_free"},
+    "weather": {"avg_temp_c": 8, "rain_probability": 0.55, "air_quality": 95},
+    "genome": {
+      "nature": 98, "cafes": 75, "photography": 98, "history": 50, "relaxation": 70,
+      "nightlife": 55, "trekking": 85, "crowds": 35, "expensive_food": 95,
+      "beach": 20, "mountains": 90, "walkability": 85, "museums": 55, "architecture": 50,
+      "internet": 90, "safety": 98, "vegetarian": 65, "digital_nomad": 50,
+      "family_friendly": 70, "public_transport": 70, "sunset": 95, "shopping": 40
+    },
+    "hidden_gems": ["Grótta lighthouse at golden hour", "Local pools over Blue Lagoon crowds", "Snæfellsnes peninsula day trip"]
+  },
+  {
+    "id": "mexico_city",
+    "name": "Mexico City",
+    "country": "Mexico",
+    "region": "Americas",
+    "tagline": "Museums, street food, and creative energy",
+    "avg_daily_cost_inr": 4500,
+    "flight_hours_from": {"Delhi": 20.0, "Mumbai": 20.5, "Bangalore": 21.0, "London": 11.0, "New York": 5.0, "Singapore": 22.0, "Dubai": 16.0},
+    "visa": {"Indian": "required", "US": "visa_free", "UK": "visa_free", "EU": "visa_free", "Singapore": "visa_free"},
+    "weather": {"avg_temp_c": 18, "rain_probability": 0.35, "air_quality": 45},
+    "genome": {
+      "nature": 45, "cafes": 90, "photography": 88, "history": 92, "relaxation": 50,
+      "nightlife": 85, "trekking": 25, "crowds": 70, "expensive_food": 35,
+      "beach": 5, "mountains": 40, "walkability": 70, "museums": 98, "architecture": 90,
+      "internet": 80, "safety": 55, "vegetarian": 75, "digital_nomad": 88,
+      "family_friendly": 60, "public_transport": 80, "sunset": 70, "shopping": 75
+    },
+    "hidden_gems": ["Coyoacán weekday mornings", "Roma Norte specialty coffee crawl", "Xochimilco early to beat tour boats"]
+  },
+  {
+    "id": "cape_town",
+    "name": "Cape Town",
+    "country": "South Africa",
+    "region": "Africa",
+    "tagline": "Mountains meet ocean with world-class food",
+    "avg_daily_cost_inr": 5000,
+    "flight_hours_from": {"Delhi": 11.0, "Mumbai": 10.5, "Bangalore": 10.0, "London": 11.5, "New York": 15.0, "Singapore": 11.0, "Dubai": 9.5},
+    "visa": {"Indian": "required", "US": "visa_free", "UK": "visa_free", "EU": "visa_free", "Singapore": "visa_free"},
+    "weather": {"avg_temp_c": 19, "rain_probability": 0.25, "air_quality": 75},
+    "genome": {
+      "nature": 95, "cafes": 85, "photography": 96, "history": 75, "relaxation": 75,
+      "nightlife": 70, "trekking": 80, "crowds": 45, "expensive_food": 50,
+      "beach": 90, "mountains": 90, "walkability": 65, "museums": 70, "architecture": 70,
+      "internet": 80, "safety": 50, "vegetarian": 70, "digital_nomad": 75,
+      "family_friendly": 75, "public_transport": 55, "sunset": 98, "shopping": 65
+    },
+    "hidden_gems": ["Signal Hill over Table Mountain crowds", "Kalk Bay harbour cafés", "Boulders Beach early morning"]
+  },
+  {
+    "id": "hanoi",
+    "name": "Hanoi",
+    "country": "Vietnam",
+    "region": "Southeast Asia",
+    "tagline": "Old Quarter energy and café culture",
+    "avg_daily_cost_inr": 2500,
+    "flight_hours_from": {"Delhi": 5.0, "Mumbai": 5.5, "Bangalore": 5.0, "London": 12.0, "New York": 18.0, "Singapore": 3.0, "Dubai": 7.5},
+    "visa": {"Indian": "evisa", "US": "evisa", "UK": "evisa", "EU": "evisa", "Singapore": "visa_free"},
+    "weather": {"avg_temp_c": 24, "rain_probability": 0.4, "air_quality": 40},
+    "genome": {
+      "nature": 50, "cafes": 96, "photography": 90, "history": 85, "relaxation": 55,
+      "nightlife": 65, "trekking": 35, "crowds": 75, "expensive_food": 10,
+      "beach": 5, "mountains": 30, "walkability": 60, "museums": 65, "architecture": 80,
+      "internet": 75, "safety": 78, "vegetarian": 80, "digital_nomad": 80,
+      "family_friendly": 65, "public_transport": 60, "sunset": 70, "shopping": 70
+    },
+    "hidden_gems": ["Train Street side alleys", "Egg coffee shops locals use", "West Lake sunrise walks"]
+  },
+  {
+    "id": "queenstown",
+    "name": "Queenstown",
+    "country": "New Zealand",
+    "region": "Oceania",
+    "tagline": "Alpine adventure capital",
+    "avg_daily_cost_inr": 11000,
+    "flight_hours_from": {"Delhi": 16.0, "Mumbai": 15.5, "Bangalore": 15.0, "London": 24.0, "New York": 20.0, "Singapore": 10.0, "Dubai": 17.0},
+    "visa": {"Indian": "required", "US": "eta", "UK": "visa_free", "EU": "visa_free", "Singapore": "visa_free"},
+    "weather": {"avg_temp_c": 12, "rain_probability": 0.4, "air_quality": 98},
+    "genome": {
+      "nature": 98, "cafes": 70, "photography": 96, "history": 30, "relaxation": 55,
+      "nightlife": 55, "trekking": 95, "crowds": 40, "expensive_food": 85,
+      "beach": 40, "mountains": 98, "walkability": 75, "museums": 30, "architecture": 40,
+      "internet": 85, "safety": 95, "vegetarian": 70, "digital_nomad": 55,
+      "family_friendly": 70, "public_transport": 45, "sunset": 92, "shopping": 45
+    },
+    "hidden_gems": ["Glenorchy road over gondola queues", "Local trails around Arrowtown", "Sunrise at Bob's Peak"]
+  },
+  {
+    "id": "prague",
+    "name": "Prague",
+    "country": "Czech Republic",
+    "region": "Europe",
+    "tagline": "Fairytale streets without Paris prices",
+    "avg_daily_cost_inr": 5000,
+    "flight_hours_from": {"Delhi": 9.5, "Mumbai": 10.0, "Bangalore": 10.5, "London": 2.0, "New York": 9.0, "Singapore": 13.0, "Dubai": 6.5},
+    "visa": {"Indian": "schengen", "US": "visa_free", "UK": "visa_free", "EU": "visa_free", "Singapore": "visa_free"},
+    "weather": {"avg_temp_c": 14, "rain_probability": 0.35, "air_quality": 70},
+    "genome": {
+      "nature": 40, "cafes": 85, "photography": 95, "history": 96, "relaxation": 65,
+      "nightlife": 80, "trekking": 20, "crowds": 70, "expensive_food": 40,
+      "beach": 0, "mountains": 25, "walkability": 95, "museums": 88, "architecture": 98,
+      "internet": 85, "safety": 85, "vegetarian": 70, "digital_nomad": 75,
+      "family_friendly": 75, "public_transport": 95, "sunset": 80, "shopping": 70
+    },
+    "hidden_gems": ["Vyšehrad over Charles Bridge crowds", "Letná beer garden viewpoints", "Vinohrady neighborhood cafés"]
+  },
+  {
+    "id": "medellin",
+    "name": "Medellín",
+    "country": "Colombia",
+    "region": "Americas",
+    "tagline": "Eternal spring and creative neighborhoods",
+    "avg_daily_cost_inr": 3000,
+    "flight_hours_from": {"Delhi": 22.0, "Mumbai": 22.5, "Bangalore": 23.0, "London": 12.0, "New York": 5.5, "Singapore": 24.0, "Dubai": 18.0},
+    "visa": {"Indian": "required", "US": "visa_free", "UK": "visa_free", "EU": "visa_free", "Singapore": "visa_free"},
+    "weather": {"avg_temp_c": 22, "rain_probability": 0.45, "air_quality": 55},
+    "genome": {
+      "nature": 70, "cafes": 88, "photography": 85, "history": 60, "relaxation": 75,
+      "nightlife": 85, "trekking": 55, "crowds": 45, "expensive_food": 20,
+      "beach": 10, "mountains": 80, "walkability": 65, "museums": 55, "architecture": 65,
+      "internet": 85, "safety": 55, "vegetarian": 65, "digital_nomad": 95,
+      "family_friendly": 60, "public_transport": 80, "sunset": 80, "shopping": 55
+    },
+    "hidden_gems": ["Comuna 13 weekday mornings", "Laureles local parks", "Guatapé midweek"]
+  },
+  {
+    "id": "seoul",
+    "name": "Seoul",
+    "country": "South Korea",
+    "region": "East Asia",
+    "tagline": "Neon nights, palace mornings, café districts",
+    "avg_daily_cost_inr": 7500,
+    "flight_hours_from": {"Delhi": 7.0, "Mumbai": 7.5, "Bangalore": 8.0, "London": 11.0, "New York": 14.0, "Singapore": 6.0, "Dubai": 8.5},
+    "visa": {"Indian": "required", "US": "visa_free", "UK": "visa_free", "EU": "visa_free", "Singapore": "visa_free"},
+    "weather": {"avg_temp_c": 14, "rain_probability": 0.35, "air_quality": 50},
+    "genome": {
+      "nature": 55, "cafes": 95, "photography": 90, "history": 85, "relaxation": 50,
+      "nightlife": 90, "trekking": 50, "crowds": 80, "expensive_food": 60,
+      "beach": 15, "mountains": 55, "walkability": 85, "museums": 80, "architecture": 85,
+      "internet": 98, "safety": 92, "vegetarian": 55, "digital_nomad": 80,
+      "family_friendly": 75, "public_transport": 98, "sunset": 70, "shopping": 95
+    },
+    "hidden_gems": ["Ikseon-dong hanok cafés early", "Bukhansan weekday trails", "Seongsu creative warehouses"]
+  },
+  {
+    "id": "dublin",
+    "name": "Dublin",
+    "country": "Ireland",
+    "region": "Europe",
+    "tagline": "Literary pubs and green day trips",
+    "avg_daily_cost_inr": 9500,
+    "flight_hours_from": {"Delhi": 10.5, "Mumbai": 11.0, "Bangalore": 11.5, "London": 1.5, "New York": 7.0, "Singapore": 14.0, "Dubai": 8.0},
+    "visa": {"Indian": "required", "US": "visa_free", "UK": "visa_free", "EU": "visa_free", "Singapore": "visa_free"},
+    "weather": {"avg_temp_c": 12, "rain_probability": 0.6, "air_quality": 85},
+    "genome": {
+      "nature": 65, "cafes": 80, "photography": 70, "history": 88, "relaxation": 60,
+      "nightlife": 85, "trekking": 45, "crowds": 55, "expensive_food": 80,
+      "beach": 40, "mountains": 40, "walkability": 88, "museums": 80, "architecture": 75,
+      "internet": 90, "safety": 88, "vegetarian": 75, "digital_nomad": 70,
+      "family_friendly": 75, "public_transport": 80, "sunset": 60, "shopping": 65
+    },
+    "hidden_gems": ["Howth cliff walk", "Portobello canal cafés", "Kilkenny day trip"]
+  },
+  {
+    "id": "cairo",
+    "name": "Cairo",
+    "country": "Egypt",
+    "region": "Africa",
+    "tagline": "Ancient wonders and Nile evenings",
+    "avg_daily_cost_inr": 2800,
+    "flight_hours_from": {"Delhi": 6.5, "Mumbai": 6.0, "Bangalore": 6.5, "London": 5.0, "New York": 11.0, "Singapore": 10.0, "Dubai": 4.0},
+    "visa": {"Indian": "voa", "US": "voa", "UK": "voa", "EU": "voa", "Singapore": "voa"},
+    "weather": {"avg_temp_c": 25, "rain_probability": 0.05, "air_quality": 30},
+    "genome": {
+      "nature": 30, "cafes": 55, "photography": 92, "history": 99, "relaxation": 40,
+      "nightlife": 50, "trekking": 20, "crowds": 85, "expensive_food": 25,
+      "beach": 10, "mountains": 20, "walkability": 40, "museums": 95, "architecture": 90,
+      "internet": 55, "safety": 55, "vegetarian": 60, "digital_nomad": 40,
+      "family_friendly": 55, "public_transport": 50, "sunset": 85, "shopping": 70
+    },
+    "hidden_gems": ["Al-Azhar Park at sunset", "Islamic Cairo early morning", "Coptic Cairo quieter lanes"]
+  },
+  {
+    "id": "vancouver",
+    "name": "Vancouver",
+    "country": "Canada",
+    "region": "Americas",
+    "tagline": "Ocean, mountains, and outdoor living",
+    "avg_daily_cost_inr": 10000,
+    "flight_hours_from": {"Delhi": 15.0, "Mumbai": 15.5, "Bangalore": 16.0, "London": 9.5, "New York": 6.0, "Singapore": 15.0, "Dubai": 14.0},
+    "visa": {"Indian": "required", "US": "visa_free", "UK": "eta", "EU": "eta", "Singapore": "visa_free"},
+    "weather": {"avg_temp_c": 12, "rain_probability": 0.5, "air_quality": 90},
+    "genome": {
+      "nature": 95, "cafes": 85, "photography": 90, "history": 45, "relaxation": 75,
+      "nightlife": 55, "trekking": 85, "crowds": 45, "expensive_food": 80,
+      "beach": 70, "mountains": 90, "walkability": 80, "museums": 65, "architecture": 60,
+      "internet": 90, "safety": 90, "vegetarian": 80, "digital_nomad": 75,
+      "family_friendly": 85, "public_transport": 85, "sunset": 85, "shopping": 70
+    },
+    "hidden_gems": ["Quarry Rock over Sea to Sky crowds", "Commercial Drive cafés", "Deep Cove kayak mornings"]
+  },
+  {
+    "id": "budapest",
+    "name": "Budapest",
+    "country": "Hungary",
+    "region": "Europe",
+    "tagline": "Thermal baths and ruin-bar romance",
+    "avg_daily_cost_inr": 4500,
+    "flight_hours_from": {"Delhi": 9.0, "Mumbai": 9.5, "Bangalore": 10.0, "London": 2.5, "New York": 9.5, "Singapore": 12.5, "Dubai": 6.0},
+    "visa": {"Indian": "schengen", "US": "visa_free", "UK": "visa_free", "EU": "visa_free", "Singapore": "visa_free"},
+    "weather": {"avg_temp_c": 15, "rain_probability": 0.3, "air_quality": 65},
+    "genome": {
+      "nature": 45, "cafes": 85, "photography": 92, "history": 90, "relaxation": 80,
+      "nightlife": 90, "trekking": 20, "crowds": 55, "expensive_food": 35,
+      "beach": 5, "mountains": 20, "walkability": 90, "museums": 80, "architecture": 94,
+      "internet": 85, "safety": 80, "vegetarian": 70, "digital_nomad": 80,
+      "family_friendly": 70, "public_transport": 90, "sunset": 88, "shopping": 60
+    },
+    "hidden_gems": ["Gellért Hill sunrise", "Neighborhood thermal baths over Széchenyi peak hours", "Újlipótváros cafés"]
+  },
+  {
+    "id": "da_nang",
+    "name": "Da Nang",
+    "country": "Vietnam",
+    "region": "Southeast Asia",
+    "tagline": "Beaches, mountains, and easy days",
+    "avg_daily_cost_inr": 2200,
+    "flight_hours_from": {"Delhi": 5.5, "Mumbai": 5.5, "Bangalore": 5.0, "London": 13.0, "New York": 19.0, "Singapore": 2.5, "Dubai": 8.0},
+    "visa": {"Indian": "evisa", "US": "evisa", "UK": "evisa", "EU": "evisa", "Singapore": "visa_free"},
+    "weather": {"avg_temp_c": 27, "rain_probability": 0.35, "air_quality": 60},
+    "genome": {
+      "nature": 80, "cafes": 80, "photography": 85, "history": 50, "relaxation": 90,
+      "nightlife": 55, "trekking": 60, "crowds": 40, "expensive_food": 15,
+      "beach": 95, "mountains": 70, "walkability": 60, "museums": 35, "architecture": 50,
+      "internet": 80, "safety": 80, "vegetarian": 75, "digital_nomad": 88,
+      "family_friendly": 80, "public_transport": 50, "sunset": 92, "shopping": 50
+    },
+    "hidden_gems": ["My Khe beach north end", "Marble Mountains caves early", "Hoi An dawn before tour buses"]
+  },
+  {
+    "id": "cusco",
+    "name": "Cusco",
+    "country": "Peru",
+    "region": "Americas",
+    "tagline": "Andean culture and gateway to Machu Picchu",
+    "avg_daily_cost_inr": 3800,
+    "flight_hours_from": {"Delhi": 22.0, "Mumbai": 22.0, "Bangalore": 23.0, "London": 15.0, "New York": 9.0, "Singapore": 24.0, "Dubai": 18.0},
+    "visa": {"Indian": "visa_free", "US": "visa_free", "UK": "visa_free", "EU": "visa_free", "Singapore": "visa_free"},
+    "weather": {"avg_temp_c": 13, "rain_probability": 0.4, "air_quality": 80},
+    "genome": {
+      "nature": 90, "cafes": 70, "photography": 95, "history": 96, "relaxation": 55,
+      "nightlife": 50, "trekking": 95, "crowds": 60, "expensive_food": 30,
+      "beach": 0, "mountains": 98, "walkability": 70, "museums": 70, "architecture": 90,
+      "internet": 60, "safety": 65, "vegetarian": 65, "digital_nomad": 50,
+      "family_friendly": 55, "public_transport": 45, "sunset": 90, "shopping": 55
+    },
+    "hidden_gems": ["San Blas artisan streets", "Sacsayhuamán at opening", "Sacred Valley villages over Aguas Calientes rush"]
+  },
+  {
+    "id": "singapore",
+    "name": "Singapore",
+    "country": "Singapore",
+    "region": "Southeast Asia",
+    "tagline": "Ultra-walkable, food-obsessed city-state",
+    "avg_daily_cost_inr": 9000,
+    "flight_hours_from": {"Delhi": 5.5, "Mumbai": 5.5, "Bangalore": 4.5, "London": 13.0, "New York": 19.0, "Singapore": 0.0, "Dubai": 7.0},
+    "visa": {"Indian": "visa_free", "US": "visa_free", "UK": "visa_free", "EU": "visa_free", "Singapore": "visa_free"},
+    "weather": {"avg_temp_c": 28, "rain_probability": 0.45, "air_quality": 70},
+    "genome": {
+      "nature": 50, "cafes": 90, "photography": 85, "history": 60, "relaxation": 55,
+      "nightlife": 75, "trekking": 25, "crowds": 70, "expensive_food": 80,
+      "beach": 40, "mountains": 10, "walkability": 95, "museums": 75, "architecture": 90,
+      "internet": 98, "safety": 98, "vegetarian": 90, "digital_nomad": 85,
+      "family_friendly": 90, "public_transport": 98, "sunset": 75, "shopping": 95
+    },
+    "hidden_gems": ["Kampong Gelam weekday mornings", "MacRitchie boardwalk", "Tiong Bahru heritage cafés"]
+  },
+  {
+    "id": "edinburgh",
+    "name": "Edinburgh",
+    "country": "Scotland",
+    "region": "Europe",
+    "tagline": "Castle views and moody charm",
+    "avg_daily_cost_inr": 9000,
+    "flight_hours_from": {"Delhi": 10.5, "Mumbai": 11.0, "Bangalore": 11.5, "London": 1.5, "New York": 7.5, "Singapore": 14.0, "Dubai": 8.5},
+    "visa": {"Indian": "required", "US": "visa_free", "UK": "visa_free", "EU": "visa_free", "Singapore": "visa_free"},
+    "weather": {"avg_temp_c": 11, "rain_probability": 0.55, "air_quality": 85},
+    "genome": {
+      "nature": 70, "cafes": 85, "photography": 90, "history": 95, "relaxation": 60,
+      "nightlife": 70, "trekking": 60, "crowds": 55, "expensive_food": 75,
+      "beach": 20, "mountains": 55, "walkability": 90, "museums": 85, "architecture": 95,
+      "internet": 88, "safety": 90, "vegetarian": 80, "digital_nomad": 70,
+      "family_friendly": 75, "public_transport": 80, "sunset": 70, "shopping": 65
+    },
+    "hidden_gems": ["Calton Hill over Arthur's Seat crowds", "Stockbridge Sunday market", "Dean Village morning light"]
+  },
+  {
+    "id": "goa",
+    "name": "Goa",
+    "country": "India",
+    "region": "South Asia",
+    "tagline": "Beaches, cafés, and slow coastal days",
+    "avg_daily_cost_inr": 3500,
+    "flight_hours_from": {"Delhi": 2.5, "Mumbai": 1.0, "Bangalore": 1.5, "London": 10.0, "New York": 18.0, "Singapore": 5.5, "Dubai": 3.5},
+    "visa": {"Indian": "domestic", "US": "required", "UK": "required", "EU": "required", "Singapore": "required"},
+    "weather": {"avg_temp_c": 28, "rain_probability": 0.3, "air_quality": 65},
+    "genome": {
+      "nature": 70, "cafes": 90, "photography": 80, "history": 55, "relaxation": 95,
+      "nightlife": 85, "trekking": 20, "crowds": 70, "expensive_food": 40,
+      "beach": 98, "mountains": 15, "walkability": 45, "museums": 30, "architecture": 55,
+      "internet": 70, "safety": 70, "vegetarian": 85, "digital_nomad": 80,
+      "family_friendly": 75, "public_transport": 35, "sunset": 95, "shopping": 60
+    },
+    "hidden_gems": ["South Goa quieter beaches", "Fontainhas Portuguese lanes", "Assagao café trail"]
+  },
+  {
+    "id": "munnar",
+    "name": "Munnar",
+    "country": "India",
+    "region": "South Asia",
+    "tagline": "Tea hills and cool mountain air",
+    "avg_daily_cost_inr": 2500,
+    "flight_hours_from": {"Delhi": 4.5, "Mumbai": 3.0, "Bangalore": 1.5, "London": 12.0, "New York": 20.0, "Singapore": 6.0, "Dubai": 5.0},
+    "visa": {"Indian": "domestic", "US": "required", "UK": "required", "EU": "required", "Singapore": "required"},
+    "weather": {"avg_temp_c": 18, "rain_probability": 0.4, "air_quality": 85},
+    "genome": {
+      "nature": 98, "cafes": 60, "photography": 92, "history": 40, "relaxation": 90,
+      "nightlife": 10, "trekking": 75, "crowds": 45, "expensive_food": 20,
+      "beach": 0, "mountains": 95, "walkability": 40, "museums": 20, "architecture": 30,
+      "internet": 50, "safety": 85, "vegetarian": 90, "digital_nomad": 40,
+      "family_friendly": 85, "public_transport": 30, "sunset": 88, "shopping": 30
+    },
+    "hidden_gems": ["Lockhart Gap viewpoints", "Local tea bungalow stays", "Anamudi foothill walks"]
+  },
+  {
+    "id": "bhutan",
+    "name": "Paro & Thimphu",
+    "country": "Bhutan",
+    "region": "South Asia",
+    "tagline": "Himalayan calm with cultural depth",
+    "avg_daily_cost_inr": 12000,
+    "flight_hours_from": {"Delhi": 2.5, "Mumbai": 3.5, "Bangalore": 4.0, "London": 12.0, "New York": 18.0, "Singapore": 6.0, "Dubai": 6.0},
+    "visa": {"Indian": "permit", "US": "required", "UK": "required", "EU": "required", "Singapore": "required"},
+    "weather": {"avg_temp_c": 14, "rain_probability": 0.35, "air_quality": 95},
+    "genome": {
+      "nature": 95, "cafes": 50, "photography": 95, "history": 90, "relaxation": 90,
+      "nightlife": 10, "trekking": 85, "crowds": 15, "expensive_food": 70,
+      "beach": 0, "mountains": 98, "walkability": 55, "museums": 60, "architecture": 85,
+      "internet": 55, "safety": 95, "vegetarian": 75, "digital_nomad": 30,
+      "family_friendly": 70, "public_transport": 40, "sunset": 90, "shopping": 35
+    },
+    "hidden_gems": ["Tiger's Nest early start", "Local farmhouse lunches", "Punakha valley over Thimphu rush"]
+  },
+  {
+    "id": "sri_lanka",
+    "name": "Ella & Galle",
+    "country": "Sri Lanka",
+    "region": "South Asia",
+    "tagline": "Tea country, beaches, and train rides",
+    "avg_daily_cost_inr": 3000,
+    "flight_hours_from": {"Delhi": 3.5, "Mumbai": 2.5, "Bangalore": 1.5, "London": 11.0, "New York": 18.0, "Singapore": 3.5, "Dubai": 4.5},
+    "visa": {"Indian": "eta", "US": "eta", "UK": "eta", "EU": "eta", "Singapore": "eta"},
+    "weather": {"avg_temp_c": 26, "rain_probability": 0.4, "air_quality": 70},
+    "genome": {
+      "nature": 92, "cafes": 75, "photography": 90, "history": 75, "relaxation": 85,
+      "nightlife": 40, "trekking": 80, "crowds": 40, "expensive_food": 25,
+      "beach": 85, "mountains": 80, "walkability": 50, "museums": 45, "architecture": 70,
+      "internet": 60, "safety": 75, "vegetarian": 85, "digital_nomad": 70,
+      "family_friendly": 80, "public_transport": 50, "sunset": 90, "shopping": 45
+    },
+    "hidden_gems": ["Ella Rock over Little Adam's Peak queues", "Galle Fort dawn", "Sidemen-style stays in Hill Country"]
+  },
+  {
+    "id": "sikkim",
+    "name": "Gangtok & Pelling",
+    "country": "India",
+    "region": "South Asia",
+    "tagline": "Himalayan views and quiet monasteries",
+    "avg_daily_cost_inr": 2800,
+    "flight_hours_from": {"Delhi": 3.0, "Mumbai": 4.0, "Bangalore": 4.5, "London": 12.0, "New York": 19.0, "Singapore": 6.5, "Dubai": 6.0},
+    "visa": {"Indian": "domestic", "US": "required", "UK": "required", "EU": "required", "Singapore": "required"},
+    "weather": {"avg_temp_c": 15, "rain_probability": 0.45, "air_quality": 90},
+    "genome": {
+      "nature": 96, "cafes": 55, "photography": 92, "history": 70, "relaxation": 85,
+      "nightlife": 15, "trekking": 80, "crowds": 25, "expensive_food": 20,
+      "beach": 0, "mountains": 98, "walkability": 45, "museums": 40, "architecture": 60,
+      "internet": 45, "safety": 88, "vegetarian": 85, "digital_nomad": 35,
+      "family_friendly": 75, "public_transport": 35, "sunset": 90, "shopping": 30
+    },
+    "hidden_gems": ["Rumtek side trails", "Pelling sunrise points", "Local momo joints over tourist cafés"]
+  },
+  {
+    "id": "barcelona",
+    "name": "Barcelona",
+    "country": "Spain",
+    "region": "Europe",
+    "tagline": "Architecture, beaches, and tapas culture",
+    "avg_daily_cost_inr": 8000,
+    "flight_hours_from": {"Delhi": 10.0, "Mumbai": 10.5, "Bangalore": 11.0, "London": 2.5, "New York": 8.0, "Singapore": 14.0, "Dubai": 7.5},
+    "visa": {"Indian": "schengen", "US": "visa_free", "UK": "visa_free", "EU": "visa_free", "Singapore": "visa_free"},
+    "weather": {"avg_temp_c": 19, "rain_probability": 0.25, "air_quality": 65},
+    "genome": {
+      "nature": 55, "cafes": 90, "photography": 92, "history": 85, "relaxation": 65,
+      "nightlife": 90, "trekking": 30, "crowds": 85, "expensive_food": 65,
+      "beach": 85, "mountains": 35, "walkability": 90, "museums": 85, "architecture": 98,
+      "internet": 85, "safety": 70, "vegetarian": 75, "digital_nomad": 85,
+      "family_friendly": 70, "public_transport": 92, "sunset": 88, "shopping": 80
+    },
+    "hidden_gems": ["Gràcia neighborhood squares", "Bunkers del Carmel sunrise", "El Born weekday mornings"]
+  },
+  {
+    "id": "tokyo",
+    "name": "Tokyo",
+    "country": "Japan",
+    "region": "East Asia",
+    "tagline": "Infinite neighborhoods and quiet precision",
+    "avg_daily_cost_inr": 10000,
+    "flight_hours_from": {"Delhi": 8.0, "Mumbai": 8.5, "Bangalore": 9.0, "London": 12.0, "New York": 14.0, "Singapore": 7.0, "Dubai": 9.5},
+    "visa": {"Indian": "required", "US": "visa_free", "UK": "visa_free", "EU": "visa_free", "Singapore": "visa_free"},
+    "weather": {"avg_temp_c": 17, "rain_probability": 0.35, "air_quality": 70},
+    "genome": {
+      "nature": 45, "cafes": 95, "photography": 92, "history": 80, "relaxation": 50,
+      "nightlife": 85, "trekking": 30, "crowds": 90, "expensive_food": 80,
+      "beach": 20, "mountains": 30, "walkability": 88, "museums": 90, "architecture": 90,
+      "internet": 98, "safety": 98, "vegetarian": 60, "digital_nomad": 75,
+      "family_friendly": 80, "public_transport": 99, "sunset": 70, "shopping": 95
+    },
+    "hidden_gems": ["Yanaka old town walks", "Shimokitazawa record cafés", "Sumida River evening paths"]
+  },
+  {
+    "id": "istanbul",
+    "name": "Istanbul",
+    "country": "Turkey",
+    "region": "Europe/Asia",
+    "tagline": "Two continents, endless layers of history",
+    "avg_daily_cost_inr": 4000,
+    "flight_hours_from": {"Delhi": 6.5, "Mumbai": 6.0, "Bangalore": 6.5, "London": 4.0, "New York": 10.0, "Singapore": 10.0, "Dubai": 4.5},
+    "visa": {"Indian": "evisa", "US": "evisa", "UK": "visa_free", "EU": "visa_free", "Singapore": "visa_free"},
+    "weather": {"avg_temp_c": 16, "rain_probability": 0.35, "air_quality": 50},
+    "genome": {
+      "nature": 40, "cafes": 85, "photography": 94, "history": 98, "relaxation": 55,
+      "nightlife": 80, "trekking": 25, "crowds": 85, "expensive_food": 35,
+      "beach": 30, "mountains": 25, "walkability": 70, "museums": 90, "architecture": 96,
+      "internet": 75, "safety": 65, "vegetarian": 70, "digital_nomad": 70,
+      "family_friendly": 65, "public_transport": 80, "sunset": 90, "shopping": 85
+    },
+    "hidden_gems": ["Balat colorful streets", "Kadıköy local markets", "Pierre Loti hill over Galata rush"]
+  },
+  {
+    "id": "zanzibar",
+    "name": "Zanzibar",
+    "country": "Tanzania",
+    "region": "Africa",
+    "tagline": "Spice island beaches and Stone Town",
+    "avg_daily_cost_inr": 4500,
+    "flight_hours_from": {"Delhi": 8.0, "Mumbai": 7.5, "Bangalore": 7.5, "London": 10.0, "New York": 16.0, "Singapore": 10.0, "Dubai": 6.0},
+    "visa": {"Indian": "voa", "US": "voa", "UK": "voa", "EU": "voa", "Singapore": "voa"},
+    "weather": {"avg_temp_c": 28, "rain_probability": 0.3, "air_quality": 75},
+    "genome": {
+      "nature": 85, "cafes": 55, "photography": 88, "history": 70, "relaxation": 95,
+      "nightlife": 45, "trekking": 25, "crowds": 40, "expensive_food": 45,
+      "beach": 98, "mountains": 10, "walkability": 50, "museums": 40, "architecture": 75,
+      "internet": 50, "safety": 65, "vegetarian": 55, "digital_nomad": 45,
+      "family_friendly": 75, "public_transport": 30, "sunset": 95, "shopping": 50
+    },
+    "hidden_gems": ["Nungwi quieter stretches", "Stone Town rooftop mornings", "Spice farm local guides"]
+  },
+  {
+    "id": "porto",
+    "name": "Porto",
+    "country": "Portugal",
+    "region": "Europe",
+    "tagline": "River views, wine, and walkable charm",
+    "avg_daily_cost_inr": 5500,
+    "flight_hours_from": {"Delhi": 11.0, "Mumbai": 11.5, "Bangalore": 12.0, "London": 2.5, "New York": 7.5, "Singapore": 14.5, "Dubai": 8.5},
+    "visa": {"Indian": "schengen", "US": "visa_free", "UK": "visa_free", "EU": "visa_free", "Singapore": "visa_free"},
+    "weather": {"avg_temp_c": 17, "rain_probability": 0.35, "air_quality": 80},
+    "genome": {
+      "nature": 55, "cafes": 90, "photography": 93, "history": 85, "relaxation": 80,
+      "nightlife": 65, "trekking": 30, "crowds": 50, "expensive_food": 40,
+      "beach": 60, "mountains": 25, "walkability": 85, "museums": 70, "architecture": 90,
+      "internet": 85, "safety": 85, "vegetarian": 70, "digital_nomad": 85,
+      "family_friendly": 75, "public_transport": 80, "sunset": 92, "shopping": 60
+    },
+    "hidden_gems": ["Vila Nova de Gaia quieter riverside", "Bookshops beyond Lello queues", "Matosinhos seafood locals prefer"]
+  },
+  {
+    "id": "almaty",
+    "name": "Almaty",
+    "country": "Kazakhstan",
+    "region": "Central Asia",
+    "tagline": "City meets Tian Shan mountains",
+    "avg_daily_cost_inr": 3500,
+    "flight_hours_from": {"Delhi": 4.0, "Mumbai": 4.5, "Bangalore": 5.0, "London": 8.0, "New York": 14.0, "Singapore": 7.5, "Dubai": 5.0},
+    "visa": {"Indian": "visa_free", "US": "visa_free", "UK": "visa_free", "EU": "visa_free", "Singapore": "visa_free"},
+    "weather": {"avg_temp_c": 12, "rain_probability": 0.3, "air_quality": 55},
+    "genome": {
+      "nature": 90, "cafes": 75, "photography": 88, "history": 60, "relaxation": 70,
+      "nightlife": 60, "trekking": 90, "crowds": 30, "expensive_food": 30,
+      "beach": 5, "mountains": 95, "walkability": 70, "museums": 50, "architecture": 55,
+      "internet": 80, "safety": 75, "vegetarian": 55, "digital_nomad": 70,
+      "family_friendly": 70, "public_transport": 70, "sunset": 80, "shopping": 50
+    },
+    "hidden_gems": ["Kok-Tobe midweek", "Big Almaty Lake early", "Panfilov local coffee spots"]
+  },
+  {
+    "id": "valletta",
+    "name": "Valletta",
+    "country": "Malta",
+    "region": "Europe",
+    "tagline": "Honey-stone streets and Mediterranean ease",
+    "avg_daily_cost_inr": 7000,
+    "flight_hours_from": {"Delhi": 9.5, "Mumbai": 9.5, "Bangalore": 10.0, "London": 3.5, "New York": 10.0, "Singapore": 13.0, "Dubai": 6.5},
+    "visa": {"Indian": "schengen", "US": "visa_free", "UK": "visa_free", "EU": "visa_free", "Singapore": "visa_free"},
+    "weather": {"avg_temp_c": 21, "rain_probability": 0.2, "air_quality": 80},
+    "genome": {
+      "nature": 55, "cafes": 80, "photography": 92, "history": 95, "relaxation": 85,
+      "nightlife": 55, "trekking": 25, "crowds": 45, "expensive_food": 60,
+      "beach": 80, "mountains": 10, "walkability": 95, "museums": 80, "architecture": 96,
+      "internet": 85, "safety": 90, "vegetarian": 65, "digital_nomad": 80,
+      "family_friendly": 75, "public_transport": 70, "sunset": 90, "shopping": 55
+    },
+    "hidden_gems": ["Three Cities ferry crossings", "Mdina golden hour", "Local pastizzi shops"]
+  },
+  {
+    "id": "jaipur",
+    "name": "Jaipur",
+    "country": "India",
+    "region": "South Asia",
+    "tagline": "Pink City forts and craft markets",
+    "avg_daily_cost_inr": 3000,
+    "flight_hours_from": {"Delhi": 1.0, "Mumbai": 2.0, "Bangalore": 2.5, "London": 9.0, "New York": 16.0, "Singapore": 6.0, "Dubai": 3.5},
+    "visa": {"Indian": "domestic", "US": "required", "UK": "required", "EU": "required", "Singapore": "required"},
+    "weather": {"avg_temp_c": 27, "rain_probability": 0.15, "air_quality": 40},
+    "genome": {
+      "nature": 35, "cafes": 75, "photography": 90, "history": 95, "relaxation": 50,
+      "nightlife": 45, "trekking": 30, "crowds": 75, "expensive_food": 30,
+      "beach": 0, "mountains": 25, "walkability": 50, "museums": 80, "architecture": 95,
+      "internet": 70, "safety": 70, "vegetarian": 95, "digital_nomad": 55,
+      "family_friendly": 80, "public_transport": 45, "sunset": 85, "shopping": 90
+    },
+    "hidden_gems": ["Nahargarh at sunset", "Bapu Bazaar side lanes", "Local haveli cafés in old city"]
+  },
+  {
+    "id": "hobart",
+    "name": "Hobart",
+    "country": "Australia",
+    "region": "Oceania",
+    "tagline": "Wilderness gateway with creative soul",
+    "avg_daily_cost_inr": 9500,
+    "flight_hours_from": {"Delhi": 14.0, "Mumbai": 13.5, "Bangalore": 13.0, "London": 22.0, "New York": 22.0, "Singapore": 8.5, "Dubai": 14.0},
+    "visa": {"Indian": "required", "US": "eta", "UK": "eta", "EU": "eta", "Singapore": "visa_free"},
+    "weather": {"avg_temp_c": 14, "rain_probability": 0.35, "air_quality": 95},
+    "genome": {
+      "nature": 95, "cafes": 85, "photography": 90, "history": 55, "relaxation": 80,
+      "nightlife": 45, "trekking": 85, "crowds": 25, "expensive_food": 75,
+      "beach": 70, "mountains": 85, "walkability": 80, "museums": 75, "architecture": 60,
+      "internet": 85, "safety": 95, "vegetarian": 75, "digital_nomad": 65,
+      "family_friendly": 80, "public_transport": 55, "sunset": 88, "shopping": 50
+    },
+    "hidden_gems": ["kunanyi foothill trails", "Battery Point cottages", "Salamanca midweek mornings"]
+  },
+  {
+    "id": "krakow",
+    "name": "Kraków",
+    "country": "Poland",
+    "region": "Europe",
+    "tagline": "Old town beauty at a friendlier price",
+    "avg_daily_cost_inr": 4000,
+    "flight_hours_from": {"Delhi": 9.0, "Mumbai": 9.5, "Bangalore": 10.0, "London": 2.5, "New York": 10.0, "Singapore": 13.0, "Dubai": 6.5},
+    "visa": {"Indian": "schengen", "US": "visa_free", "UK": "visa_free", "EU": "visa_free", "Singapore": "visa_free"},
+    "weather": {"avg_temp_c": 12, "rain_probability": 0.35, "air_quality": 55},
+    "genome": {
+      "nature": 45, "cafes": 85, "photography": 90, "history": 95, "relaxation": 65,
+      "nightlife": 80, "trekking": 25, "crowds": 55, "expensive_food": 30,
+      "beach": 0, "mountains": 35, "walkability": 95, "museums": 90, "architecture": 92,
+      "internet": 85, "safety": 85, "vegetarian": 70, "digital_nomad": 75,
+      "family_friendly": 75, "public_transport": 90, "sunset": 75, "shopping": 60
+    },
+    "hidden_gems": ["Kazimierz local cafés", "Kopiec Krakusa viewpoint", "Zakopane day trip for mountains"]
+  },
+  {
+    "id": "luang_prabang",
+    "name": "Luang Prabang",
+    "country": "Laos",
+    "region": "Southeast Asia",
+    "tagline": "Mekong sunsets and temple mornings",
+    "avg_daily_cost_inr": 2700,
+    "flight_hours_from": {"Delhi": 6.0, "Mumbai": 6.0, "Bangalore": 5.5, "London": 14.0, "New York": 20.0, "Singapore": 3.0, "Dubai": 8.5},
+    "visa": {"Indian": "voa", "US": "voa", "UK": "voa", "EU": "voa", "Singapore": "visa_free"},
+    "weather": {"avg_temp_c": 26, "rain_probability": 0.4, "air_quality": 70},
+    "genome": {
+      "nature": 85, "cafes": 80, "photography": 90, "history": 85, "relaxation": 95,
+      "nightlife": 20, "trekking": 55, "crowds": 30, "expensive_food": 20,
+      "beach": 10, "mountains": 60, "walkability": 85, "museums": 50, "architecture": 85,
+      "internet": 55, "safety": 85, "vegetarian": 80, "digital_nomad": 60,
+      "family_friendly": 70, "public_transport": 30, "sunset": 95, "shopping": 45
+    },
+    "hidden_gems": ["Kuang Si falls midweek early", "Peninsula riverside walks", "Local night market food stalls"]
+  }
+]
