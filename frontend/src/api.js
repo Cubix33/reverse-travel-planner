@@ -16,8 +16,8 @@ export function fetchMeta() {
   return request('/api/meta')
 }
 
-export function recommend(preferences) {
-  return request('/api/recommend', {
+export function recommend(preferences, limit = 8) {
+  return request(`/api/recommend?limit=${limit}`, {
     method: 'POST',
     body: JSON.stringify(preferences),
   })
@@ -35,4 +35,22 @@ export function experienceSearch(payload) {
     method: 'POST',
     body: JSON.stringify(payload),
   })
+}
+
+export function fetchItinerary(destinationId, preferences) {
+  return request('/api/itinerary', {
+    method: 'POST',
+    body: JSON.stringify({ destination_id: destinationId, preferences }),
+  })
+}
+
+export function compareDestinations(destinationIds, preferences) {
+  return request('/api/compare', {
+    method: 'POST',
+    body: JSON.stringify({ destination_ids: destinationIds, preferences }),
+  })
+}
+
+export function fetchDestination(id) {
+  return request(`/api/destinations/${id}`)
 }

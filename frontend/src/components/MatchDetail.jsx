@@ -1,13 +1,26 @@
 import { formatInr } from '../defaults'
 
-export default function MatchDetail({ match, explanation, explaining, onExplain }) {
+export default function MatchDetail({
+  match,
+  explanation,
+  explaining,
+  onExplain,
+  onGenerateItinerary,
+  onSave,
+  saved,
+  compareSelected,
+  onToggleCompare,
+  itineraryLoading,
+}) {
   if (!match) {
     return (
       <aside className="detail-panel empty">
-        <p>Select a destination to see why it matched — Spotify-style dimensions, budget split, and hidden gems.</p>
+        <p>Select a destination to see why it matched — dimensions, genome, budget split, and next actions.</p>
       </aside>
     )
   }
+
+  const genomeEntries = Object.entries(match.genome_highlights || {})
 
   return (
     <aside className="detail-panel">
@@ -20,9 +33,25 @@ export default function MatchDetail({ match, explanation, explaining, onExplain 
           </span>
         </h3>
         <p className="tagline">{match.tagline}</p>
+        <div className="detail-actions">
+          <button type="button" className="ghost-btn" onClick={onSave}>
+            {saved ? 'Saved' : 'Save trip'}
+          </button>
+          <button
+            type="button"
+            className={`ghost-btn ${compareSelected ? 'active-toggle' : ''}`}
+            onClick={onToggleCompare}
+          >
+            {compareSelected ? 'In compare' : 'Add to compare'}
+          </button>
+          <button type="button" className="primary-btn inline" onClick={onGenerateItinerary} disabled={itineraryLoading}>
+            {itineraryLoading ? 'Building…' : 'Build itinerary'}
+          </button>
+        </div>
       </header>
 
       <section className="dimensions">
+        <h4>Match dimensions</h4>
         {match.dimensions.map((d) => (
           <div key={d.label} className="dim-row">
             <div className="dim-label">
@@ -35,6 +64,20 @@ export default function MatchDetail({ match, explanation, explaining, onExplain 
           </div>
         ))}
       </section>
+
+      {!!genomeEntries.length && (
+        <section className="genome-box">
+          <h4>Destination genome</h4>
+          <div className="genome-grid">
+            {genomeEntries.map(([k, v]) => (
+              <div key={k} className="genome-chip">
+                <span>{k.replace('_', ' ')}</span>
+                <strong>{v}</strong>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
 
       <section className="reasons">
         <h4>Explainability</h4>

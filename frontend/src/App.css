@@ -455,24 +455,53 @@ input[type='range'] {
 
 .match-card {
   display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.55rem;
+  align-items: stretch;
+  width: 100%;
+  border: 1px solid var(--line);
+  background: rgba(8, 24, 18, 0.65);
+  border-radius: 1rem;
+  padding: 0.55rem;
+  color: inherit;
+  animation: rise 500ms ease both;
+  transition: border-color 160ms ease, transform 160ms ease;
+}
+
+.match-card-main {
+  display: grid;
   grid-template-columns: auto 1fr auto;
   gap: 0.9rem;
   align-items: center;
   text-align: left;
   width: 100%;
-  border: 1px solid var(--line);
-  background: rgba(8, 24, 18, 0.65);
-  border-radius: 1rem;
-  padding: 0.95rem 1rem;
+  border: 0;
+  background: transparent;
   color: inherit;
-  animation: rise 500ms ease both;
-  transition: border-color 160ms ease, transform 160ms ease;
+  padding: 0.4rem 0.45rem;
+  border-radius: 0.75rem;
 }
 
 .match-card:hover,
 .match-card.selected {
   border-color: var(--accent);
   transform: translateY(-2px);
+}
+
+.compare-toggle {
+  border: 1px solid var(--line);
+  background: transparent;
+  border-radius: 0.75rem;
+  padding: 0.45rem 0.7rem;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.compare-toggle.on,
+.ghost-btn.active-toggle {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(232, 240, 122, 0.1);
 }
 
 .match-rank {
@@ -717,12 +746,346 @@ input[type='range'] {
   }
 }
 
+.hero-below {
+  padding-top: 0;
+}
+
+.experience-search,
+.itinerary-panel,
+.compare-view,
+.travel-twin,
+.saved-trips {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow);
+  border-radius: 1.15rem;
+  padding: 1.25rem;
+  margin: 1rem 0;
+  animation: rise 500ms ease both;
+}
+
+.experience-search form {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.65rem;
+  margin: 0.85rem 0;
+}
+
+.experience-search input {
+  width: 100%;
+  border: 1px solid var(--line);
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 0.85rem;
+  padding: 0.85rem 1rem;
+  outline: none;
+}
+
+.experience-search input:focus {
+  border-color: var(--accent);
+}
+
+.experience-search .primary-btn {
+  margin-top: 0;
+}
+
+.experience-search .hint,
+.extracted-note {
+  color: var(--muted);
+  font-size: 0.88rem;
+  margin: 0.75rem 0 0;
+}
+
+.results-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 0.9rem;
+}
+
+.detail-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.85rem;
+}
+
+.primary-btn.inline {
+  margin-top: 0;
+  padding: 0.55rem 0.95rem;
+  font-size: 0.9rem;
+}
+
+.genome-box {
+  margin-top: 1.1rem;
+}
+
+.genome-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.45rem;
+}
+
+.genome-chip {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.45rem 0.6rem;
+  border-radius: 0.55rem;
+  background: rgba(0, 0, 0, 0.22);
+  font-size: 0.84rem;
+  text-transform: capitalize;
+}
+
+.itinerary-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.itinerary-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.itinerary-days {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.day-card {
+  border: 1px solid var(--line);
+  border-radius: 0.9rem;
+  padding: 0.9rem 1rem;
+  background: rgba(0, 0, 0, 0.18);
+}
+
+.day-card h4 {
+  margin: 0;
+  font-family: Syne, sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.day-card h4 span,
+.day-focus {
+  font-family: Manrope, sans-serif;
+  font-size: 0.86rem;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.day-card ul,
+.concierge-list,
+.pack-list,
+.travel-twin ul,
+.saved-card p {
+  list-style: none;
+  margin: 0.65rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.45rem;
+}
+
+.day-card li,
+.concierge-list li {
+  display: grid;
+  gap: 0.15rem;
+  padding: 0.5rem 0.6rem;
+  border-radius: 0.55rem;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.day-card li strong,
+.concierge-list li strong {
+  color: var(--accent-2);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.day-card li em {
+  color: var(--muted);
+  font-style: normal;
+  font-size: 0.82rem;
+}
+
+.itinerary-side {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.itinerary-side h4,
+.compare-view h3,
+.travel-twin h2,
+.saved-trips h2 {
+  font-family: Syne, sans-serif;
+  letter-spacing: -0.03em;
+  margin: 0 0 0.5rem;
+}
+
+.compare-view header,
+.saved-trips header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin-bottom: 0.85rem;
+}
+
+.compare-view h3 span {
+  display: block;
+  margin-top: 0.25rem;
+  font-family: Manrope, sans-serif;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--accent-2);
+}
+
+.compare-scroll {
+  overflow-x: auto;
+}
+
+.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 640px;
+}
+
+.compare-table th,
+.compare-table td {
+  border-bottom: 1px solid var(--line);
+  padding: 0.7rem 0.65rem;
+  text-align: left;
+  vertical-align: top;
+  font-size: 0.9rem;
+}
+
+.compare-table th {
+  font-family: Syne, sans-serif;
+}
+
+.compare-table th span {
+  display: block;
+  margin-top: 0.2rem;
+  font-family: Manrope, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.compare-table td:first-child,
+.compare-table th:first-child {
+  color: var(--muted);
+  text-transform: capitalize;
+  width: 8.5rem;
+}
+
+.compare-meter {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.45rem;
+  align-items: center;
+}
+
+.twin-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin: 1.1rem 0;
+}
+
+.twin-stats div,
+.saved-card {
+  border: 1px solid var(--line);
+  border-radius: 0.9rem;
+  padding: 0.9rem;
+  background: rgba(0, 0, 0, 0.18);
+}
+
+.twin-stats strong {
+  display: block;
+  font-family: Syne, sans-serif;
+  font-size: 1.25rem;
+  margin-bottom: 0.2rem;
+}
+
+.twin-stats span {
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.twin-columns {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 1rem;
+}
+
+.twin-columns h4 {
+  margin: 0 0 0.45rem;
+}
+
+.twin-columns li em {
+  color: var(--accent-2);
+  font-style: normal;
+}
+
+.saved-grid {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.saved-card {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.saved-card h3 {
+  margin: 0;
+  font-family: Syne, sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.saved-card h3 span {
+  font-family: Manrope, sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.saved-actions {
+  display: flex;
+  gap: 0.45rem;
+}
+
+.ghost-btn.danger {
+  border-color: rgba(255, 143, 122, 0.45);
+  color: var(--danger);
+}
+
 @media (max-width: 900px) {
   .hero-screen,
   .results-layout,
   .what-if,
   .field-grid,
-  .dna-grid {
+  .dna-grid,
+  .itinerary-side,
+  .twin-columns,
+  .twin-stats,
+  .experience-search form {
     grid-template-columns: 1fr;
   }
 

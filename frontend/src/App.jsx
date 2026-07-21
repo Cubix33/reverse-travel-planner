@@ -1,11 +1,30 @@
 import { useEffect, useRef, useState } from 'react'
-import { explain, fetchMeta, recommend } from './api'
+import {
+  compareDestinations,
+  explain,
+  experienceSearch,
+  fetchItinerary,
+  fetchMeta,
+  recommend,
+} from './api'
 import { DEFAULT_PREFS } from './defaults'
+import CompareView from './components/CompareView'
+import ExperienceSearch from './components/ExperienceSearch'
+import ItineraryPanel from './components/ItineraryPanel'
 import MatchCard from './components/MatchCard'
 import MatchDetail from './components/MatchDetail'
+import SavedTrips from './components/SavedTrips'
+import TravelTwin from './components/TravelTwin'
 import TripDna from './components/TripDna'
 import TripForm from './components/TripForm'
 import WhatIf from './components/WhatIf'
+import {
+  loadSavedTrips,
+  loadTwin,
+  removeSavedTrip,
+  saveTrip,
+  updateTwinFromSearch,
+} from './storage'
 import './App.css'
 
 export default function App() {
@@ -18,8 +37,17 @@ export default function App() {
   const [loading, setLoading] = useState(false)
   const [explaining, setExplaining] = useState(false)
   const [error, setError] = useState('')
+  const [compareIds, setCompareIds] = useState([])
+  const [compareData, setCompareData] = useState(null)
+  const [comparing, setComparing] = useState(false)
+  const [itinerary, setItinerary] = useState(null)
+  const [itineraryLoading, setItineraryLoading] = useState(false)
+  const [twin, setTwin] = useState(() => loadTwin())
+  const [savedTrips, setSavedTrips] = useState(() => loadSavedTrips())
+  const [extractedNote, setExtractedNote] = useState('')
   const debounceRef = useRef(null)
   const resultsRef = useRef(null)
+  const itineraryRef = useRef(null)
   const prefsRef = useRef(prefs)
   prefsRef.current = prefs
 
@@ -29,19 +57,27 @@ export default function App() {
       .catch(() => setMeta(null))
   }, [])
 
-  async function runRecommend(nextPrefs = prefsRef.current, { scroll = false } = {}) {
+  function payloadFrom(nextPrefs) {
+    return {
+      ...nextPrefs,
+      experience_query: nextPrefs.experience_query || null,
+    }
+  }
+
+  async function runRecommend(nextPrefs = prefsRef.current, { scroll = false, track = true } = {}) {
     setLoading(true)
     setError('')
+    setCompareData(null)
+    setItinerary(null)
     try {
-      const payload = {
-        ...nextPrefs,
-        experience_query: nextPrefs.experience_query || null,
-      }
-      const data = await recommend(payload)
+      const data = await recommend(payloadFrom(nextPrefs))
       setResult(data)
       setSelected(data.matches[0] || null)
       setExplanation('')
       setStage('results')
+      if (track) {
+        setTwin(updateTwinFromSearch(nextPrefs, data.matches))
+      }
       if (scroll) {
         requestAnimationFrame(() => {
           resultsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
@@ -61,18 +97,51 @@ export default function App() {
   function handleWhatIf(nextPrefs) {
     clearTimeout(debounceRef.current)
     debounceRef.current = setTimeout(() => {
-      runRecommend(nextPrefs)
+      runRecommend(nextPrefs, { track: false })
     }, 280)
+  }
+
+  async function handleExperienceSearch(query) {
+    setLoading(true)
+    setError('')
+    setExtractedNote('')
+    try {
+      const data = await experienceSearch({
+        query,
+        starting_city: prefs.starting_city,
+        passport: prefs.passport,
+        budget_inr: prefs.budget_inr,
+        days: prefs.days,
+        max_flight_hours: prefs.max_flight_hours,
+      })
+      const nextPrefs = {
+        ...prefs,
+        ...data.preferences,
+        experience_query: query,
+      }
+      setPrefs(nextPrefs)
+      setResult(data.result)
+      setSelected(data.result.matches[0] || null)
+      setExplanation('')
+      setItinerary(null)
+      setExtractedNote(
+        `Interpreted as: ${(data.preferences.travel_styles || []).join(', ') || 'open styles'}` +
+          (data.preferences.avoid?.length ? ` · avoid ${data.preferences.avoid.join(', ')}` : ''),
+      )
+      setTwin(updateTwinFromSearch(nextPrefs, data.result.matches))
+      setStage('results')
+    } catch (err) {
+      setError(err.message || 'Experience search failed')
+    } finally {
+      setLoading(false)
+    }
   }
 
   async function handleExplain() {
     if (!selected) return
     setExplaining(true)
     try {
-      const data = await explain(selected.id, {
-        ...prefs,
-        experience_query: prefs.experience_query || null,
-      })
+      const data = await explain(selected.id, payloadFrom(prefs))
       setExplanation(data.explanation)
     } catch (err) {
       setExplanation(err.message || 'Could not generate explanation')
@@ -80,6 +149,80 @@ export default function App() {
       setExplaining(false)
     }
   }
+
+  async function handleItinerary() {
+    if (!selected) return
+    setItineraryLoading(true)
+    setError('')
+    try {
+      const plan = await fetchItinerary(selected.id, payloadFrom(prefs))
+      setItinerary(plan)
+      requestAnimationFrame(() => {
+        itineraryRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      })
+    } catch (err) {
+      setError(err.message || 'Could not build itinerary')
+    } finally {
+      setItineraryLoading(false)
+    }
+  }
+
+  function toggleCompare(match) {
+    setCompareIds((ids) => {
+      if (ids.includes(match.id)) return ids.filter((id) => id !== match.id)
+      if (ids.length >= 3) return [...ids.slice(1), match.id]
+      return [...ids, match.id]
+    })
+    setCompareData(null)
+  }
+
+  async function runCompare() {
+    if (compareIds.length < 2) return
+    setComparing(true)
+    setError('')
+    try {
+      const data = await compareDestinations(compareIds, payloadFrom(prefs))
+      setCompareData(data)
+      setStage('results')
+    } catch (err) {
+      setError(err.message || 'Compare failed')
+    } finally {
+      setComparing(false)
+    }
+  }
+
+  function handleSave() {
+    if (!selected) return
+    const next = saveTrip({
+      destinationId: selected.id,
+      destinationName: selected.name,
+      destinationCountry: selected.country,
+      matchPercent: selected.match_percent,
+      budgetInr: prefs.budget_inr,
+      days: prefs.days,
+      prefs: { ...prefs },
+      match: selected,
+    })
+    setSavedTrips(next)
+    setTwin(updateTwinFromSearch(prefs, [selected]))
+  }
+
+  function handleOpenSaved(trip) {
+    if (trip.prefs) setPrefs(trip.prefs)
+    if (trip.match) {
+      setSelected(trip.match)
+      setResult({
+        matches: [trip.match],
+        trip_dna: trip.match.trip_dna || {},
+        query_summary: `Saved trip · ${trip.destinationName}`,
+      })
+      setStage('results')
+    } else if (trip.prefs) {
+      runRecommend(trip.prefs, { scroll: true })
+    }
+  }
+
+  const savedSelected = savedTrips.some((t) => t.destinationId === selected?.id)
 
   return (
     <div className="app">
@@ -94,6 +237,9 @@ export default function App() {
           </span>
         </button>
         <nav>
+          <button type="button" onClick={() => setStage('hero')}>
+            Home
+          </button>
           <button type="button" onClick={() => setStage('form')}>
             Plan
           </button>
@@ -102,6 +248,12 @@ export default function App() {
               Matches
             </button>
           )}
+          <button type="button" onClick={() => setStage('twin')}>
+            Twin
+          </button>
+          <button type="button" onClick={() => setStage('saved')}>
+            Saved
+          </button>
         </nav>
       </header>
 
@@ -111,8 +263,8 @@ export default function App() {
             <p className="brand-lockup">Reverse Travel Planner</p>
             <h1>Don&apos;t choose a destination. Choose the experience.</h1>
             <p className="hero-sub">
-              Budget, days, visa friction, weather, and vibe in — ranked cities out, with a clear why for every
-              match.
+              Constraints and feelings in — ranked cities, explainable scores, itineraries, and a Travel Twin
+              that learns you over time.
             </p>
             <div className="hero-cta">
               <button type="button" className="primary-btn" onClick={() => setStage('form')}>
@@ -121,10 +273,7 @@ export default function App() {
               <button
                 type="button"
                 className="ghost-btn"
-                onClick={() => {
-                  setStage('form')
-                  setTimeout(() => runRecommend(DEFAULT_PREFS, { scroll: true }), 50)
-                }}
+                onClick={() => runRecommend(DEFAULT_PREFS, { scroll: true })}
               >
                 Try a demo search
               </button>
@@ -144,6 +293,17 @@ export default function App() {
         </section>
       )}
 
+      {stage === 'hero' && (
+        <main className="page hero-below">
+          <ExperienceSearch
+            examples={meta?.experience_examples}
+            prefs={prefs}
+            onSearch={handleExperienceSearch}
+            loading={loading}
+          />
+        </main>
+      )}
+
       {stage === 'form' && (
         <main className="page">
           <TripForm
@@ -153,7 +313,29 @@ export default function App() {
             onSubmit={handleSubmit}
             loading={loading}
           />
+          <ExperienceSearch
+            examples={meta?.experience_examples}
+            prefs={prefs}
+            onSearch={handleExperienceSearch}
+            loading={loading}
+          />
           {error && <p className="error">{error}</p>}
+        </main>
+      )}
+
+      {stage === 'twin' && (
+        <main className="page">
+          <TravelTwin twin={twin} />
+        </main>
+      )}
+
+      {stage === 'saved' && (
+        <main className="page">
+          <SavedTrips
+            trips={savedTrips}
+            onOpen={handleOpenSaved}
+            onRemove={(id) => setSavedTrips(removeSavedTrip(id))}
+          />
         </main>
       )}
 
@@ -163,13 +345,26 @@ export default function App() {
             <p className="eyebrow">AI computed</p>
             <h2>Your destination matches</h2>
             <p className="lede">{result.query_summary}</p>
-            <button type="button" className="ghost-btn" onClick={() => setStage('form')}>
-              Edit preferences
-            </button>
+            {extractedNote && <p className="extracted-note">{extractedNote}</p>}
+            <div className="results-toolbar">
+              <button type="button" className="ghost-btn" onClick={() => setStage('form')}>
+                Edit preferences
+              </button>
+              <button
+                type="button"
+                className="ghost-btn"
+                disabled={compareIds.length < 2 || comparing}
+                onClick={runCompare}
+              >
+                {comparing ? 'Comparing…' : `Compare selected (${compareIds.length}/3)`}
+              </button>
+            </div>
           </header>
 
           <WhatIf prefs={prefs} setPrefs={setPrefs} onRecalculate={handleWhatIf} loading={loading} />
           <TripDna dna={result.trip_dna} />
+
+          {compareData && <CompareView data={compareData} onClose={() => setCompareData(null)} />}
 
           <div className="results-layout">
             <div className="match-list">
@@ -179,9 +374,12 @@ export default function App() {
                   match={m}
                   rank={i + 1}
                   selected={selected?.id === m.id}
+                  compareSelected={compareIds.includes(m.id)}
+                  onToggleCompare={toggleCompare}
                   onSelect={(match) => {
                     setSelected(match)
                     setExplanation('')
+                    setItinerary(null)
                   }}
                 />
               ))}
@@ -194,6 +392,21 @@ export default function App() {
               explanation={explanation}
               explaining={explaining}
               onExplain={handleExplain}
+              onGenerateItinerary={handleItinerary}
+              itineraryLoading={itineraryLoading}
+              onSave={handleSave}
+              saved={savedSelected}
+              compareSelected={compareIds.includes(selected?.id)}
+              onToggleCompare={() => selected && toggleCompare(selected)}
+            />
+          </div>
+
+          <div ref={itineraryRef}>
+            <ItineraryPanel
+              plan={itinerary}
+              loading={itineraryLoading}
+              onGenerate={handleItinerary}
+              onClose={() => setItinerary(null)}
             />
           </div>
           {error && <p className="error">{error}</p>}
@@ -201,7 +414,7 @@ export default function App() {
       )}
 
       <footer className="site-footer">
-        <p>Destination is the output — built for OpenAI Build Week.</p>
+        <p>Destination is the output — reverse planning from constraints to cities.</p>
       </footer>
     </div>
   )
