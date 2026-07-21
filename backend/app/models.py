@@ -65,3 +65,41 @@ class ExperienceSearchRequest(BaseModel):
 class ExplainRequest(BaseModel):
     destination_id: str
     preferences: TripPreferences
+
+
+class ItineraryRequest(BaseModel):
+    destination_id: str
+    preferences: TripPreferences
+
+
+class CompareRequest(BaseModel):
+    destination_ids: list[str] = Field(min_length=2, max_length=3)
+    preferences: TripPreferences
+
+
+class ActivityItem(BaseModel):
+    time: str
+    title: str
+    note: str
+
+
+class ItineraryDay(BaseModel):
+    day: int
+    title: str
+    focus: str
+    activities: list[ActivityItem]
+
+
+class ConciergeTip(BaseModel):
+    trigger: str
+    action: str
+
+
+class ItineraryResponse(BaseModel):
+    destination_id: str
+    destination_name: str
+    summary: str
+    days: list[ItineraryDay]
+    concierge: list[ConciergeTip]
+    packing_tips: list[str]
+    source: str
