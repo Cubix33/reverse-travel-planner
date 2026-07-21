@@ -313,16 +313,13 @@ reverse-travel-planner/
 3. **Offline-first judging reliability** — fallback itineraries + keyword experience parsing  
 4. **GPT-5.6 product judgment** — cut live booking APIs; keep genome + explainability + What If as the demo spine; Travel Twin as the long-term differentiator  
 
-### What we did *not* do with the LLM
+### What I did *not* do with the LLM
 
 - Let an LLM freely invent destinations without constraints  
 - Hide ranking inside a prompt  
 - Require paid flights/hotels APIs for the demo  
 
 LLM helps where language helps: **explanations, experience interpretation, itinerary writing**. Hard constraints stay in code.
-
-**Submission one-liner:**  
-> We used Codex agentically to build a hybrid recommendation system end-to-end — genome data, FastAPI ranking, React product UI, and Groq-backed explanations — while GPT-5.6 guided the decision to reverse the travel planning funnel instead of shipping another itinerary generator.
 
 ---
 
